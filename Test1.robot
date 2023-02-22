@@ -58,7 +58,8 @@ Get Expensive Items
     FOR    ${buyButton}    IN    @{buyButtons}
         Wait Until Element Is Visible    xpath=//button[@data-lb-action='buy']/span
         Click Element    ${buyBUtton}
-        Set Browser Implicit Wait    3
+        #Set Browser Implicit Wait    3
+        Sleep    2s
 
         ${discountPopUp}=  Get Element Count    xpath=//div[@class='boxed-content']
         IF    ($discountPopUp == 1)
@@ -87,15 +88,12 @@ Get Expensive Items
 
     #remove item from basket
     Wait Until Element Is Visible    xpath=//a[@rel='nofollow']
-    ${basketCount}=    Get Element Count    xpath=//div[@class='basket-product-wrap']
-    Log To Console    ${basketCount}
     ${totalPrice}=    Get Element Attribute    xpath=//div[@class='basket-total-price']    data-basket-price
     
     Click Element    xpath=//a[@rel='nofollow']
-    Set Browser Implicit Wait    5s
+    Sleep    2s  
+    
     ${totalPriceRemove}=    Get Element Attribute    xpath=//div[@class='basket-total-price']    data-basket-price
 
     Should Not Be Equal    ${totalPrice}    ${totalPriceRemove}
-
-    #Wait Until Page Contains Element    //div[@class='basket-product-wrap']    timeout=10s
-    #Page Should Contain Element    //div[@class='basket-product-wrap']    limit=2  
+    Page Should Contain Element    //div[@class='basket-product-wrap']    limit=2  
