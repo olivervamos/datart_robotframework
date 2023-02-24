@@ -97,3 +97,4 @@ Get Expensive Items
 
     Should Not Be Equal    ${totalPrice}    ${totalPriceRemove}
     Page Should Contain Element    //div[@class='basket-product-wrap']    limit=2  
+    Close Browser
