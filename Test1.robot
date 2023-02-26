@@ -1,7 +1,6 @@
 *** Settings ***
 Documentation    Expensive items in basket.
 Library          SeleniumLibrary    
-Library    XML
 Library    String
 Library    Collections
 
@@ -58,7 +57,6 @@ Get Expensive Items
     FOR    ${buyButton}    IN    @{buyButtons}
         Wait Until Element Is Visible    xpath=//button[@data-lb-action='buy']/span
         Click Element    ${buyBUtton}
-        #Set Browser Implicit Wait    3
         Sleep    2s
 
         ${discountPopUp}=  Get Element Count    xpath=//div[@class='boxed-content']
