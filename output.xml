@@ -1,120 +1,2012 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<robot generator="Robot 5.0.1 (Python 3.11.1 on win32)" generated="20230226 21:57:57.839" rpa="false" schemaversion="3">
-<suite id="s1" name="Test3" source="c:\Users\olive\Desktop\robot\datart\Test3.robot">
-<test id="s1-t1" name="Empty Basket" line="14">
+<robot generator="Robot 5.0.1 (Python 3.11.1 on win32)" generated="20230309 19:24:01.555" rpa="false" schemaversion="3">
+<suite id="s1" name="Test1" source="c:\Users\olive\Desktop\robot\datart\Test1.robot">
+<test id="s1-t1" name="Get Expensive Items" line="18">
 <kw name="Open Browser" library="SeleniumLibrary">
 <arg>${URL}</arg>
 <arg>${BROWSER}</arg>
 <doc>Opens a new browser instance to the optional ``url``.</doc>
-<msg timestamp="20230226 21:57:58.383" level="INFO">Opening browser 'Chrome' to base url 'https://www.datart.sk/'.</msg>
-<status status="PASS" starttime="20230226 21:57:58.382" endtime="20230226 21:58:02.305"/>
+<msg timestamp="20230309 19:24:01.998" level="INFO">Opening browser 'Chrome' to base url 'https://www.datart.sk/'.</msg>
+<status status="PASS" starttime="20230309 19:24:01.998" endtime="20230309 19:24:05.353"/>
 </kw>
 <kw name="Maximize Browser Window" library="SeleniumLibrary">
 <doc>Maximizes current browser window.</doc>
-<status status="PASS" starttime="20230226 21:58:02.316" endtime="20230226 21:58:02.716"/>
+<status status="PASS" starttime="20230309 19:24:05.355" endtime="20230309 19:24:05.766"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath=//div[contains(@class,'box')]//button[contains(text(),'Súhlasím a pokračovať')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230226 21:58:02.734" level="INFO">Clicking element 'xpath=//div[contains(@class,'box')]//button[contains(text(),'Súhlasím a pokračovať')]'.</msg>
-<status status="PASS" starttime="20230226 21:58:02.731" endtime="20230226 21:58:03.300"/>
+<msg timestamp="20230309 19:24:05.770" level="INFO">Clicking element 'xpath=//div[contains(@class,'box')]//button[contains(text(),'Súhlasím a pokračovať')]'.</msg>
+<status status="PASS" starttime="20230309 19:24:05.769" endtime="20230309 19:24:06.273"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath=//h2[contains(@class, 'footer')]/..//a[contains(@href, 'pc-notebooky')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230226 21:58:03.303" level="INFO">Clicking element 'xpath=//h2[contains(@class, 'footer')]/..//a[contains(@href, 'pc-notebooky')]'.</msg>
-<status status="PASS" starttime="20230226 21:58:03.301" endtime="20230226 21:58:07.310"/>
+<msg timestamp="20230309 19:24:06.278" level="INFO">Clicking element 'xpath=//h2[contains(@class, 'footer')]/..//a[contains(@href, 'pc-notebooky')]'.</msg>
+<status status="PASS" starttime="20230309 19:24:06.277" endtime="20230309 19:24:10.094"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath=//span[contains(text(),'Macbooky')]</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230226 21:58:07.313" level="INFO">Clicking element 'xpath=//span[contains(text(),'Macbooky')]'.</msg>
-<status status="PASS" starttime="20230226 21:58:07.313" endtime="20230226 21:58:09.425"/>
+<msg timestamp="20230309 19:24:10.114" level="INFO">Clicking element 'xpath=//span[contains(text(),'Macbooky')]'.</msg>
+<status status="PASS" starttime="20230309 19:24:10.113" endtime="20230309 19:24:13.926"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//a[@data-lb-name='Najdrahší']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:13.936" level="INFO">Clicking element 'xpath=//a[@data-lb-name='Najdrahší']'.</msg>
+<status status="PASS" starttime="20230309 19:24:13.934" endtime="20230309 19:24:14.549"/>
 </kw>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
 <arg>xpath=//button[@data-lb-action='buy']/span</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230226 21:58:09.426" endtime="20230226 21:58:09.595"/>
+<status status="PASS" starttime="20230309 19:24:14.550" endtime="20230309 19:24:14.662"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${ListCount}</var>
+<arg>xpath=//div[@class='item-price']</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230309 19:24:15.310" level="INFO">${ListCount} = 16</msg>
+<status status="PASS" starttime="20230309 19:24:14.663" endtime="20230309 19:24:15.311"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${prices}</var>
+<arg>xpath=//div[@class='item-price']</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20230309 19:24:15.865" level="INFO">${prices} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="c64c223c-6cee-4e21-9717-5880f5b32a9c")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20230309 19:24:15.321" endtime="20230309 19:24:15.866"/>
+</kw>
+<for flavor="IN">
+<var>${price}</var>
+<value>@{prices}</value>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="c64c223c-6cee-4e21-9717-5880f5b32a9c")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.067" level="INFO">${priceVal} = 7599</msg>
+<status status="PASS" starttime="20230309 19:24:15.871" endtime="20230309 19:24:16.068"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.070" level="INFO">${priceInt} = 7599</msg>
+<status status="PASS" starttime="20230309 19:24:16.069" endtime="20230309 19:24:16.073"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.074" endtime="20230309 19:24:16.075"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:15.870" endtime="20230309 19:24:16.075"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="5311ebae-ad3b-4268-a3c2-07ac64349c1c")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.132" level="INFO">${priceVal} = 7379</msg>
+<status status="PASS" starttime="20230309 19:24:16.076" endtime="20230309 19:24:16.133"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.134" level="INFO">${priceInt} = 7379</msg>
+<status status="PASS" starttime="20230309 19:24:16.133" endtime="20230309 19:24:16.134"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.135" endtime="20230309 19:24:16.135"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.076" endtime="20230309 19:24:16.136"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="84ded616-a628-44b2-b7cd-d12b83e01472")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.260" level="INFO">${priceVal} = 7379</msg>
+<status status="PASS" starttime="20230309 19:24:16.139" endtime="20230309 19:24:16.260"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.262" level="INFO">${priceInt} = 7379</msg>
+<status status="PASS" starttime="20230309 19:24:16.261" endtime="20230309 19:24:16.262"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.262" endtime="20230309 19:24:16.263"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.136" endtime="20230309 19:24:16.264"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="ce9c2b2f-8c42-4860-82ef-944bf6559442")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.315" level="INFO">${priceVal} = 7139</msg>
+<status status="PASS" starttime="20230309 19:24:16.265" endtime="20230309 19:24:16.316"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.317" level="INFO">${priceInt} = 7139</msg>
+<status status="PASS" starttime="20230309 19:24:16.316" endtime="20230309 19:24:16.318"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.318" endtime="20230309 19:24:16.319"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.264" endtime="20230309 19:24:16.320"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="fed8b78c-1e01-4c65-9ad0-9c78d4788900")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.411" level="INFO">${priceVal} = 6919</msg>
+<status status="PASS" starttime="20230309 19:24:16.322" endtime="20230309 19:24:16.411"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.413" level="INFO">${priceInt} = 6919</msg>
+<status status="PASS" starttime="20230309 19:24:16.412" endtime="20230309 19:24:16.413"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.414" endtime="20230309 19:24:16.415"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.320" endtime="20230309 19:24:16.415"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="42995bb6-9914-4e75-b966-c43dffd32523")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.497" level="INFO">${priceVal} = 6919</msg>
+<status status="PASS" starttime="20230309 19:24:16.416" endtime="20230309 19:24:16.498"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.499" level="INFO">${priceInt} = 6919</msg>
+<status status="PASS" starttime="20230309 19:24:16.498" endtime="20230309 19:24:16.500"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.500" endtime="20230309 19:24:16.501"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.416" endtime="20230309 19:24:16.501"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="8160ee16-e152-433e-8e6a-a5a5e12748e7")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.581" level="INFO">${priceVal} = 6909</msg>
+<status status="PASS" starttime="20230309 19:24:16.502" endtime="20230309 19:24:16.581"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.583" level="INFO">${priceInt} = 6909</msg>
+<status status="PASS" starttime="20230309 19:24:16.582" endtime="20230309 19:24:16.584"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.584" endtime="20230309 19:24:16.585"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.502" endtime="20230309 19:24:16.586"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="9cc91803-ab2a-428f-a534-5b7ddaaacd8f")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.672" level="INFO">${priceVal} = 6689</msg>
+<status status="PASS" starttime="20230309 19:24:16.589" endtime="20230309 19:24:16.673"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.675" level="INFO">${priceInt} = 6689</msg>
+<status status="PASS" starttime="20230309 19:24:16.674" endtime="20230309 19:24:16.675"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.676" endtime="20230309 19:24:16.677"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.587" endtime="20230309 19:24:16.677"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="3ca3f9d3-4d74-4067-aa0c-21237fa3bda5")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.836" level="INFO">${priceVal} = 6689</msg>
+<status status="PASS" starttime="20230309 19:24:16.678" endtime="20230309 19:24:16.836"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.839" level="INFO">${priceInt} = 6689</msg>
+<status status="PASS" starttime="20230309 19:24:16.837" endtime="20230309 19:24:16.840"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.840" endtime="20230309 19:24:16.841"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.678" endtime="20230309 19:24:16.842"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="1c215dd7-63f6-41c9-aa09-2f07cc58649e")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:16.948" level="INFO">${priceVal} = 6679</msg>
+<status status="PASS" starttime="20230309 19:24:16.843" endtime="20230309 19:24:16.949"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:16.951" level="INFO">${priceInt} = 6679</msg>
+<status status="PASS" starttime="20230309 19:24:16.950" endtime="20230309 19:24:16.951"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:16.952" endtime="20230309 19:24:16.952"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.842" endtime="20230309 19:24:16.953"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="73118abf-8ddf-4d7a-af71-2082e2cbb5da")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:17.000" level="INFO">${priceVal} = 6459</msg>
+<status status="PASS" starttime="20230309 19:24:16.955" endtime="20230309 19:24:17.001"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:17.002" level="INFO">${priceInt} = 6459</msg>
+<status status="PASS" starttime="20230309 19:24:17.001" endtime="20230309 19:24:17.002"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:17.002" endtime="20230309 19:24:17.003"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:16.953" endtime="20230309 19:24:17.003"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="d2bca03a-cb4b-4262-9f72-be5f6af9493b")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:17.096" level="INFO">${priceVal} = 6459</msg>
+<status status="PASS" starttime="20230309 19:24:17.006" endtime="20230309 19:24:17.097"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:17.098" level="INFO">${priceInt} = 6459</msg>
+<status status="PASS" starttime="20230309 19:24:17.097" endtime="20230309 19:24:17.099"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:17.099" endtime="20230309 19:24:17.100"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.004" endtime="20230309 19:24:17.100"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="061d152b-db6b-4e7f-8c46-d6ccecf7eef4")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:17.171" level="INFO">${priceVal} = 6449</msg>
+<status status="PASS" starttime="20230309 19:24:17.102" endtime="20230309 19:24:17.173"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:17.174" level="INFO">${priceInt} = 6449</msg>
+<status status="PASS" starttime="20230309 19:24:17.173" endtime="20230309 19:24:17.175"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:17.175" endtime="20230309 19:24:17.176"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.101" endtime="20230309 19:24:17.177"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="4a9776b5-9871-4e95-aaa5-362ec6d91022")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:17.268" level="INFO">${priceVal} = 6229</msg>
+<status status="PASS" starttime="20230309 19:24:17.178" endtime="20230309 19:24:17.268"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:17.270" level="INFO">${priceInt} = 6229</msg>
+<status status="PASS" starttime="20230309 19:24:17.269" endtime="20230309 19:24:17.271"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:17.272" endtime="20230309 19:24:17.274"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.177" endtime="20230309 19:24:17.274"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="7437a0ea-c321-4f4e-8b74-d39774321b8c")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:17.348" level="INFO">${priceVal} = 6229</msg>
+<status status="PASS" starttime="20230309 19:24:17.275" endtime="20230309 19:24:17.349"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:17.350" level="INFO">${priceInt} = 6229</msg>
+<status status="PASS" starttime="20230309 19:24:17.349" endtime="20230309 19:24:17.350"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:17.351" endtime="20230309 19:24:17.352"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.275" endtime="20230309 19:24:17.352"/>
+</iter>
+<iter>
+<var name="${price}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="0d249362-0b11-4229-884b-9e3ba89e860b")&gt;</var>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${priceVal}</var>
+<arg>${price}</arg>
+<arg>data-product-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:17.430" level="INFO">${priceVal} = 6219</msg>
+<status status="PASS" starttime="20230309 19:24:17.353" endtime="20230309 19:24:17.431"/>
+</kw>
+<kw name="Convert To Integer" library="BuiltIn">
+<var>${priceInt}</var>
+<arg>${priceVal}</arg>
+<doc>Converts the given item to an integer number.</doc>
+<msg timestamp="20230309 19:24:17.432" level="INFO">${priceInt} = 6219</msg>
+<status status="PASS" starttime="20230309 19:24:17.431" endtime="20230309 19:24:17.433"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${priceList}</arg>
+<arg>${priceInt}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:17.433" endtime="20230309 19:24:17.434"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.353" endtime="20230309 19:24:17.434"/>
+</iter>
+<status status="PASS" starttime="20230309 19:24:15.869" endtime="20230309 19:24:17.434"/>
+</for>
+<kw name="Evaluate" library="BuiltIn">
+<var>${ListCount-1}</var>
+<arg>${ListCount}-1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.451" level="INFO">${ListCount-1} = 15</msg>
+<status status="PASS" starttime="20230309 19:24:17.450" endtime="20230309 19:24:17.451"/>
+</kw>
+<for flavor="IN RANGE">
+<var>${counter}</var>
+<value>0</value>
+<value>${ListCount}</value>
+<value>1</value>
+<iter>
+<var name="${counter}">0</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.464" level="INFO">${counter+1} = 1</msg>
+<status status="PASS" starttime="20230309 19:24:17.463" endtime="20230309 19:24:17.464"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.477" endtime="20230309 19:24:17.477"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.476" endtime="20230309 19:24:17.477"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.464" endtime="20230309 19:24:17.478"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.479" level="INFO">${ListItem1} = 7599</msg>
+<status status="PASS" starttime="20230309 19:24:17.478" endtime="20230309 19:24:17.479"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.481" level="INFO">${ListItem2} = 7379</msg>
+<status status="PASS" starttime="20230309 19:24:17.480" endtime="20230309 19:24:17.481"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.482" endtime="20230309 19:24:17.483"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.484" endtime="20230309 19:24:17.504"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.462" endtime="20230309 19:24:17.504"/>
+</iter>
+<iter>
+<var name="${counter}">1</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.508" level="INFO">${counter+1} = 2</msg>
+<status status="PASS" starttime="20230309 19:24:17.506" endtime="20230309 19:24:17.508"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.510" endtime="20230309 19:24:17.510"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.509" endtime="20230309 19:24:17.510"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.509" endtime="20230309 19:24:17.511"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.512" level="INFO">${ListItem1} = 7379</msg>
+<status status="PASS" starttime="20230309 19:24:17.511" endtime="20230309 19:24:17.513"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.514" level="INFO">${ListItem2} = 7379</msg>
+<status status="PASS" starttime="20230309 19:24:17.513" endtime="20230309 19:24:17.515"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.515" endtime="20230309 19:24:17.517"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.517" endtime="20230309 19:24:17.519"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.505" endtime="20230309 19:24:17.519"/>
+</iter>
+<iter>
+<var name="${counter}">2</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.525" level="INFO">${counter+1} = 3</msg>
+<status status="PASS" starttime="20230309 19:24:17.521" endtime="20230309 19:24:17.526"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.528" endtime="20230309 19:24:17.528"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.528" endtime="20230309 19:24:17.529"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.527" endtime="20230309 19:24:17.529"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.530" level="INFO">${ListItem1} = 7379</msg>
+<status status="PASS" starttime="20230309 19:24:17.529" endtime="20230309 19:24:17.531"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.532" level="INFO">${ListItem2} = 7139</msg>
+<status status="PASS" starttime="20230309 19:24:17.531" endtime="20230309 19:24:17.532"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.533" endtime="20230309 19:24:17.534"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.534" endtime="20230309 19:24:17.537"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.520" endtime="20230309 19:24:17.537"/>
+</iter>
+<iter>
+<var name="${counter}">3</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.543" level="INFO">${counter+1} = 4</msg>
+<status status="PASS" starttime="20230309 19:24:17.542" endtime="20230309 19:24:17.543"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.544" endtime="20230309 19:24:17.545"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.544" endtime="20230309 19:24:17.545"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.544" endtime="20230309 19:24:17.545"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.546" level="INFO">${ListItem1} = 7139</msg>
+<status status="PASS" starttime="20230309 19:24:17.546" endtime="20230309 19:24:17.586"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.587" level="INFO">${ListItem2} = 6919</msg>
+<status status="PASS" starttime="20230309 19:24:17.586" endtime="20230309 19:24:17.588"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.589" endtime="20230309 19:24:17.591"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.592" endtime="20230309 19:24:17.596"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.539" endtime="20230309 19:24:17.596"/>
+</iter>
+<iter>
+<var name="${counter}">4</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.598" level="INFO">${counter+1} = 5</msg>
+<status status="PASS" starttime="20230309 19:24:17.597" endtime="20230309 19:24:17.598"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.599" endtime="20230309 19:24:17.600"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.599" endtime="20230309 19:24:17.600"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.599" endtime="20230309 19:24:17.601"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.602" level="INFO">${ListItem1} = 6919</msg>
+<status status="PASS" starttime="20230309 19:24:17.601" endtime="20230309 19:24:17.602"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.603" level="INFO">${ListItem2} = 6919</msg>
+<status status="PASS" starttime="20230309 19:24:17.603" endtime="20230309 19:24:17.604"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.604" endtime="20230309 19:24:17.607"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.608" endtime="20230309 19:24:17.614"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.597" endtime="20230309 19:24:17.615"/>
+</iter>
+<iter>
+<var name="${counter}">5</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.617" level="INFO">${counter+1} = 6</msg>
+<status status="PASS" starttime="20230309 19:24:17.616" endtime="20230309 19:24:17.617"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.618" endtime="20230309 19:24:17.619"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.618" endtime="20230309 19:24:17.619"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.618" endtime="20230309 19:24:17.619"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.621" level="INFO">${ListItem1} = 6919</msg>
+<status status="PASS" starttime="20230309 19:24:17.620" endtime="20230309 19:24:17.621"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.629" level="INFO">${ListItem2} = 6909</msg>
+<status status="PASS" starttime="20230309 19:24:17.627" endtime="20230309 19:24:17.630"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.630" endtime="20230309 19:24:17.631"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.632" endtime="20230309 19:24:17.698"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.615" endtime="20230309 19:24:17.698"/>
+</iter>
+<iter>
+<var name="${counter}">6</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.701" level="INFO">${counter+1} = 7</msg>
+<status status="PASS" starttime="20230309 19:24:17.700" endtime="20230309 19:24:17.702"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.707" endtime="20230309 19:24:17.708"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.703" endtime="20230309 19:24:17.708"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.703" endtime="20230309 19:24:17.708"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.714" level="INFO">${ListItem1} = 6909</msg>
+<status status="PASS" starttime="20230309 19:24:17.712" endtime="20230309 19:24:17.714"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.718" level="INFO">${ListItem2} = 6689</msg>
+<status status="PASS" starttime="20230309 19:24:17.716" endtime="20230309 19:24:17.718"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.728" endtime="20230309 19:24:17.729"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.730" endtime="20230309 19:24:17.733"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.699" endtime="20230309 19:24:17.734"/>
+</iter>
+<iter>
+<var name="${counter}">7</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.736" level="INFO">${counter+1} = 8</msg>
+<status status="PASS" starttime="20230309 19:24:17.735" endtime="20230309 19:24:17.737"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.744" endtime="20230309 19:24:17.744"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.743" endtime="20230309 19:24:17.745"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.737" endtime="20230309 19:24:17.745"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.746" level="INFO">${ListItem1} = 6689</msg>
+<status status="PASS" starttime="20230309 19:24:17.745" endtime="20230309 19:24:17.746"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.748" level="INFO">${ListItem2} = 6689</msg>
+<status status="PASS" starttime="20230309 19:24:17.747" endtime="20230309 19:24:17.748"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.749" endtime="20230309 19:24:17.750"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.751" endtime="20230309 19:24:17.767"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.735" endtime="20230309 19:24:17.767"/>
+</iter>
+<iter>
+<var name="${counter}">8</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.769" level="INFO">${counter+1} = 9</msg>
+<status status="PASS" starttime="20230309 19:24:17.768" endtime="20230309 19:24:17.770"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.826" endtime="20230309 19:24:17.826"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.770" endtime="20230309 19:24:17.826"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.770" endtime="20230309 19:24:17.827"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.829" level="INFO">${ListItem1} = 6689</msg>
+<status status="PASS" starttime="20230309 19:24:17.827" endtime="20230309 19:24:17.830"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.832" level="INFO">${ListItem2} = 6679</msg>
+<status status="PASS" starttime="20230309 19:24:17.831" endtime="20230309 19:24:17.832"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.833" endtime="20230309 19:24:17.834"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.834" endtime="20230309 19:24:17.841"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.768" endtime="20230309 19:24:17.841"/>
+</iter>
+<iter>
+<var name="${counter}">9</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.843" level="INFO">${counter+1} = 10</msg>
+<status status="PASS" starttime="20230309 19:24:17.842" endtime="20230309 19:24:17.844"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.845" endtime="20230309 19:24:17.846"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.845" endtime="20230309 19:24:17.846"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.844" endtime="20230309 19:24:17.846"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.848" level="INFO">${ListItem1} = 6679</msg>
+<status status="PASS" starttime="20230309 19:24:17.847" endtime="20230309 19:24:17.848"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.850" level="INFO">${ListItem2} = 6459</msg>
+<status status="PASS" starttime="20230309 19:24:17.849" endtime="20230309 19:24:17.851"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.851" endtime="20230309 19:24:17.853"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.853" endtime="20230309 19:24:17.860"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.842" endtime="20230309 19:24:17.861"/>
+</iter>
+<iter>
+<var name="${counter}">10</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:17.866" level="INFO">${counter+1} = 11</msg>
+<status status="PASS" starttime="20230309 19:24:17.864" endtime="20230309 19:24:17.867"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:17.878" endtime="20230309 19:24:17.879"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:17.875" endtime="20230309 19:24:17.879"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:17.873" endtime="20230309 19:24:17.882"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.886" level="INFO">${ListItem1} = 6459</msg>
+<status status="PASS" starttime="20230309 19:24:17.882" endtime="20230309 19:24:17.890"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:17.937" level="INFO">${ListItem2} = 6459</msg>
+<status status="PASS" starttime="20230309 19:24:17.892" endtime="20230309 19:24:17.938"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:17.940" endtime="20230309 19:24:17.942"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:17.944" endtime="20230309 19:24:18.016"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:17.862" endtime="20230309 19:24:18.017"/>
+</iter>
+<iter>
+<var name="${counter}">11</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:18.019" level="INFO">${counter+1} = 12</msg>
+<status status="PASS" starttime="20230309 19:24:18.018" endtime="20230309 19:24:18.019"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:18.033" endtime="20230309 19:24:18.034"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:18.033" endtime="20230309 19:24:18.034"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:18.020" endtime="20230309 19:24:18.035"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:18.037" level="INFO">${ListItem1} = 6459</msg>
+<status status="PASS" starttime="20230309 19:24:18.035" endtime="20230309 19:24:18.045"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:18.048" level="INFO">${ListItem2} = 6449</msg>
+<status status="PASS" starttime="20230309 19:24:18.047" endtime="20230309 19:24:18.049"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:18.052" endtime="20230309 19:24:18.054"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:18.055" endtime="20230309 19:24:18.085"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:18.017" endtime="20230309 19:24:18.086"/>
+</iter>
+<iter>
+<var name="${counter}">12</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:18.095" level="INFO">${counter+1} = 13</msg>
+<status status="PASS" starttime="20230309 19:24:18.087" endtime="20230309 19:24:18.097"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:18.100" endtime="20230309 19:24:18.100"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:18.099" endtime="20230309 19:24:18.101"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:18.098" endtime="20230309 19:24:18.101"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:18.111" level="INFO">${ListItem1} = 6449</msg>
+<status status="PASS" starttime="20230309 19:24:18.104" endtime="20230309 19:24:18.112"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:18.114" level="INFO">${ListItem2} = 6229</msg>
+<status status="PASS" starttime="20230309 19:24:18.113" endtime="20230309 19:24:18.114"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:18.115" endtime="20230309 19:24:18.150"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:18.150" endtime="20230309 19:24:18.193"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:18.086" endtime="20230309 19:24:18.194"/>
+</iter>
+<iter>
+<var name="${counter}">13</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:18.197" level="INFO">${counter+1} = 14</msg>
+<status status="PASS" starttime="20230309 19:24:18.195" endtime="20230309 19:24:18.198"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:18.202" endtime="20230309 19:24:18.204"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:18.201" endtime="20230309 19:24:18.205"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:18.199" endtime="20230309 19:24:18.209"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:18.213" level="INFO">${ListItem1} = 6229</msg>
+<status status="PASS" starttime="20230309 19:24:18.210" endtime="20230309 19:24:18.213"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:18.214" level="INFO">${ListItem2} = 6229</msg>
+<status status="PASS" starttime="20230309 19:24:18.213" endtime="20230309 19:24:18.215"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:18.215" endtime="20230309 19:24:18.216"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:18.217" endtime="20230309 19:24:18.238"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:18.195" endtime="20230309 19:24:18.238"/>
+</iter>
+<iter>
+<var name="${counter}">14</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:18.242" level="INFO">${counter+1} = 15</msg>
+<status status="PASS" starttime="20230309 19:24:18.241" endtime="20230309 19:24:18.242"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:18.244" endtime="20230309 19:24:18.244"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:18.243" endtime="20230309 19:24:18.244"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:18.243" endtime="20230309 19:24:18.245"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:18.246" level="INFO">${ListItem1} = 6229</msg>
+<status status="PASS" starttime="20230309 19:24:18.245" endtime="20230309 19:24:18.247"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<msg timestamp="20230309 19:24:18.249" level="INFO">${ListItem2} = 6219</msg>
+<status status="PASS" starttime="20230309 19:24:18.248" endtime="20230309 19:24:18.249"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="PASS" starttime="20230309 19:24:18.250" endtime="20230309 19:24:18.251"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="PASS" starttime="20230309 19:24:18.252" endtime="20230309 19:24:18.265"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:18.239" endtime="20230309 19:24:18.266"/>
+</iter>
+<iter>
+<var name="${counter}">15</var>
+<kw name="Evaluate" library="BuiltIn">
+<var>${counter+1}</var>
+<arg>${counter}+1</arg>
+<doc>Evaluates the given expression in Python and returns the result.</doc>
+<msg timestamp="20230309 19:24:18.268" level="INFO">${counter+1} = 16</msg>
+<status status="PASS" starttime="20230309 19:24:18.267" endtime="20230309 19:24:18.268"/>
+</kw>
+<if>
+<branch type="IF" condition="$counter == ${ListCount-1}">
+<break>
+<status status="PASS" starttime="20230309 19:24:18.270" endtime="20230309 19:24:18.270"/>
+</break>
+<status status="PASS" starttime="20230309 19:24:18.270" endtime="20230309 19:24:18.271"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:18.269" endtime="20230309 19:24:18.271"/>
+</if>
+<kw name="Get From List" library="Collections">
+<var>${ListItem1}</var>
+<arg>${priceList}</arg>
+<arg>${counter}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="NOT RUN" starttime="20230309 19:24:18.272" endtime="20230309 19:24:18.276"/>
+</kw>
+<kw name="Get From List" library="Collections">
+<var>${ListItem2}</var>
+<arg>${priceList}</arg>
+<arg>${counter+1}</arg>
+<doc>Returns the value specified with an ``index`` from ``list``.</doc>
+<status status="NOT RUN" starttime="20230309 19:24:18.276" endtime="20230309 19:24:18.277"/>
+</kw>
+<kw name="Should Be True" library="BuiltIn">
+<arg>${ListItem1}&gt;=${ListItem2}</arg>
+<doc>Fails if the given condition is not true.</doc>
+<status status="NOT RUN" starttime="20230309 19:24:18.278" endtime="20230309 19:24:18.278"/>
+</kw>
+<kw name="Log To Console" library="BuiltIn">
+<arg>${ListItem1}' and '${ListItem2}</arg>
+<doc>Logs the given message to the console.</doc>
+<status status="NOT RUN" starttime="20230309 19:24:18.280" endtime="20230309 19:24:18.280"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:18.266" endtime="20230309 19:24:18.281"/>
+</iter>
+<status status="PASS" starttime="20230309 19:24:17.461" endtime="20230309 19:24:18.281"/>
+</for>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${itemElements}</var>
+<arg>xpath=//h3[@class='item-title']/a[contains(@data-lb-name,'Notebook')]</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20230309 19:24:18.568" level="INFO">${itemElements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="37639662-24a2-4c13-936e-ad4cf3854a28")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20230309 19:24:18.283" endtime="20230309 19:24:18.568"/>
+</kw>
+<for flavor="IN">
+<var>${itemElement}</var>
+<value>@{itemElements}</value>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="37639662-24a2-4c13-936e-ad4cf3854a28")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:19.244" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Space Grey SK (APPMBPCTO662)</msg>
+<status status="PASS" starttime="20230309 19:24:18.593" endtime="20230309 19:24:19.244"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:19.248" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Space Grey SK (APPMBPCTO662)</msg>
+<status status="PASS" starttime="20230309 19:24:19.245" endtime="20230309 19:24:19.248"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:19.248" endtime="20230309 19:24:19.249"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:18.592" endtime="20230309 19:24:19.249"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="fb86b037-c45f-48c9-9269-03c3f247c58f")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:19.447" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Space Grey SK (APPMBPCTO598)</msg>
+<status status="PASS" starttime="20230309 19:24:19.250" endtime="20230309 19:24:19.448"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:19.451" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Space Grey SK (APPMBPCTO598)</msg>
+<status status="PASS" starttime="20230309 19:24:19.448" endtime="20230309 19:24:19.451"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:19.452" endtime="20230309 19:24:19.453"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:19.250" endtime="20230309 19:24:19.453"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="aa4d7b95-95b0-457e-8e56-61167377f435")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:19.601" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Silver SK (APPMBPCTO746)</msg>
+<status status="PASS" starttime="20230309 19:24:19.454" endtime="20230309 19:24:19.601"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:19.604" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Silver SK (APPMBPCTO746)</msg>
+<status status="PASS" starttime="20230309 19:24:19.602" endtime="20230309 19:24:19.605"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:19.605" endtime="20230309 19:24:19.607"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:19.454" endtime="20230309 19:24:19.608"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="29363340-f338-47c9-89ac-9182fb88bb76")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:19.704" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 64GB, 8TB - Space Grey SK (APPMBPCTO657)</msg>
+<status status="PASS" starttime="20230309 19:24:19.610" endtime="20230309 19:24:19.704"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:19.709" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 64GB, 8TB - Space Grey SK (APPMBPCTO657)</msg>
+<status status="PASS" starttime="20230309 19:24:19.705" endtime="20230309 19:24:19.709"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:19.710" endtime="20230309 19:24:19.711"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:19.609" endtime="20230309 19:24:19.711"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="f223d9f5-6e14-4c09-b8dc-d802368c7051")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:19.885" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 64GB, 8TB - Silver SK (APPMBPCTO741)</msg>
+<status status="PASS" starttime="20230309 19:24:19.712" endtime="20230309 19:24:19.886"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:19.889" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 64GB, 8TB - Silver SK (APPMBPCTO741)</msg>
+<status status="PASS" starttime="20230309 19:24:19.887" endtime="20230309 19:24:19.891"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:19.893" endtime="20230309 19:24:19.894"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:19.712" endtime="20230309 19:24:19.894"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="7c802ed7-71c5-4a67-a214-7a851c834973")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:19.970" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 64GB, 8TB - Space Grey SK (APPMBPCTO593)</msg>
+<status status="PASS" starttime="20230309 19:24:19.896" endtime="20230309 19:24:19.970"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:19.975" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 64GB, 8TB - Space Grey SK (APPMBPCTO593)</msg>
+<status status="PASS" starttime="20230309 19:24:19.971" endtime="20230309 19:24:19.976"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:19.976" endtime="20230309 19:24:19.978"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:19.895" endtime="20230309 19:24:19.978"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="bafcfad8-b8c4-49dc-bc98-8036bc378391")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:20.078" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 16" M2 Max 12-CPU 30-GPU, 64GB, 8TB - Space Grey SK (APPMBPCTO648)</msg>
+<status status="PASS" starttime="20230309 19:24:19.979" endtime="20230309 19:24:20.078"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:20.081" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 16" M2 Max 12-CPU 30-GPU, 64GB, 8TB - Space Grey SK (APPMBPCTO648)</msg>
+<status status="PASS" starttime="20230309 19:24:20.079" endtime="20230309 19:24:20.081"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:20.081" endtime="20230309 19:24:20.082"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:19.978" endtime="20230309 19:24:20.082"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="61b4f87f-27aa-409c-829b-2665f884bbcc")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:20.147" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 30-GPU, 64GB, 8TB - Silver SK (APPMBPCTO731)</msg>
+<status status="PASS" starttime="20230309 19:24:20.083" endtime="20230309 19:24:20.148"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:20.150" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 30-GPU, 64GB, 8TB - Silver SK (APPMBPCTO731)</msg>
+<status status="PASS" starttime="20230309 19:24:20.149" endtime="20230309 19:24:20.151"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:20.151" endtime="20230309 19:24:20.152"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:20.082" endtime="20230309 19:24:20.152"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="6dabd4b0-2c26-41a9-942d-6313635d03cb")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:20.249" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 30-GPU, 64GB, 8TB - Space Grey SK (APPMBPCTO583)</msg>
+<status status="PASS" starttime="20230309 19:24:20.153" endtime="20230309 19:24:20.250"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:20.253" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 30-GPU, 64GB, 8TB - Space Grey SK (APPMBPCTO583)</msg>
+<status status="PASS" starttime="20230309 19:24:20.250" endtime="20230309 19:24:20.253"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:20.254" endtime="20230309 19:24:20.255"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:20.153" endtime="20230309 19:24:20.255"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="e33a22bc-0801-440d-b064-25657e5d999d")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:20.436" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 32GB, 8TB - Space Grey SK (APPMBPCTO652)</msg>
+<status status="PASS" starttime="20230309 19:24:20.256" endtime="20230309 19:24:20.436"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:20.439" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 32GB, 8TB - Space Grey SK (APPMBPCTO652)</msg>
+<status status="PASS" starttime="20230309 19:24:20.437" endtime="20230309 19:24:20.439"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:20.440" endtime="20230309 19:24:20.441"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:20.256" endtime="20230309 19:24:20.442"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="85508ea5-b22c-4cb6-b68d-a88344c98f1d")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:20.588" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 32GB, 8TB - Silver SK (APPMBPCTO736)</msg>
+<status status="PASS" starttime="20230309 19:24:20.443" endtime="20230309 19:24:20.589"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:20.594" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 32GB, 8TB - Silver SK (APPMBPCTO736)</msg>
+<status status="PASS" starttime="20230309 19:24:20.590" endtime="20230309 19:24:20.595"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:20.595" endtime="20230309 19:24:20.596"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:20.443" endtime="20230309 19:24:20.596"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="8a68bf20-ceff-42ed-9557-2f1f2be298c6")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:20.769" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 32GB, 8TB - Space Grey SK (APPMBPCTO588)</msg>
+<status status="PASS" starttime="20230309 19:24:20.597" endtime="20230309 19:24:20.769"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:20.771" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 32GB, 8TB - Space Grey SK (APPMBPCTO588)</msg>
+<status status="PASS" starttime="20230309 19:24:20.769" endtime="20230309 19:24:20.772"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:20.772" endtime="20230309 19:24:20.773"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:20.597" endtime="20230309 19:24:20.773"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="31e45242-c5ca-4d3a-ab23-e21b9546f7eb")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:20.834" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 16" M2 Max 12-CPU 30-GPU, 32GB, 8TB - Space Grey SK (APPMBPCTO643)</msg>
+<status status="PASS" starttime="20230309 19:24:20.775" endtime="20230309 19:24:20.834"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:20.836" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 16" M2 Max 12-CPU 30-GPU, 32GB, 8TB - Space Grey SK (APPMBPCTO643)</msg>
+<status status="PASS" starttime="20230309 19:24:20.835" endtime="20230309 19:24:20.836"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:20.836" endtime="20230309 19:24:20.837"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:20.774" endtime="20230309 19:24:20.837"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="95bcda3d-21ad-40a9-95be-ca776216a9ab")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:20.921" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 30-GPU, 32GB, 8TB - Space Grey SK (APPMBPCTO578)</msg>
+<status status="PASS" starttime="20230309 19:24:20.837" endtime="20230309 19:24:20.921"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:20.925" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 30-GPU, 32GB, 8TB - Space Grey SK (APPMBPCTO578)</msg>
+<status status="PASS" starttime="20230309 19:24:20.922" endtime="20230309 19:24:20.926"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:20.927" endtime="20230309 19:24:20.928"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:20.837" endtime="20230309 19:24:20.928"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="9bd66f99-a555-45b9-98a4-bf6df9375d37")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:20.995" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 14" M2 Max 12-CPU 30-GPU, 32GB, 8TB - Silver SK (APPMBPCTO726)</msg>
+<status status="PASS" starttime="20230309 19:24:20.929" endtime="20230309 19:24:20.995"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:20.997" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 30-GPU, 32GB, 8TB - Silver SK (APPMBPCTO726)</msg>
+<status status="PASS" starttime="20230309 19:24:20.995" endtime="20230309 19:24:20.997"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:20.997" endtime="20230309 19:24:20.998"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:20.929" endtime="20230309 19:24:20.998"/>
+</iter>
+<iter>
+<var name="${itemElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="e6710e28-abde-4273-b159-ee99e5d4bab9")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${itemName}</var>
+<arg>${itemElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:21.054" level="INFO">${itemName} = Notebook Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 96GB, 4TB - Space Grey SK (APPMBPCTO661)</msg>
+<status status="PASS" starttime="20230309 19:24:20.999" endtime="20230309 19:24:21.054"/>
+</kw>
+<kw name="Replace String" library="String">
+<var>${itemNameRepl}</var>
+<arg>${itemName}</arg>
+<arg>Notebook${SPACE}</arg>
+<arg>${EMPTY}</arg>
+<doc>Replaces ``search_for`` in the given ``string`` with ``replace_with``.</doc>
+<msg timestamp="20230309 19:24:21.057" level="INFO">${itemNameRepl} = Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 96GB, 4TB - Space Grey SK (APPMBPCTO661)</msg>
+<status status="PASS" starttime="20230309 19:24:21.055" endtime="20230309 19:24:21.058"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemNameList}</arg>
+<arg>${itemNameRepl}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:21.058" endtime="20230309 19:24:21.060"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:20.998" endtime="20230309 19:24:21.060"/>
+</iter>
+<status status="PASS" starttime="20230309 19:24:18.588" endtime="20230309 19:24:21.061"/>
+</for>
+<kw name="Get Slice From List" library="Collections">
+<var>${itemNameList2}</var>
+<arg>${itemNameList}</arg>
+<arg>0</arg>
+<arg>3</arg>
+<doc>Returns a slice of the given list between ``start`` and ``end`` indexes.</doc>
+<msg timestamp="20230309 19:24:21.079" level="INFO">${itemNameList2} = ['Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Space Grey SK (APPMBPCTO662)', 'Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Space Grey SK (APPMBPCTO598)', 'Apple MacBook ...</msg>
+<status status="PASS" starttime="20230309 19:24:21.077" endtime="20230309 19:24:21.079"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${buyButtons}</var>
 <arg>xpath=//button[@data-lb-action='buy']/span</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230226 21:58:09.599" level="INFO">Clicking element 'xpath=//button[@data-lb-action='buy']/span'.</msg>
-<status status="PASS" starttime="20230226 21:58:09.599" endtime="20230226 21:58:09.926"/>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20230309 19:24:21.432" level="INFO">${buyButtons} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="8648464b-2517-4503-aefd-917c2e236523")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20230309 19:24:21.098" endtime="20230309 19:24:21.432"/>
 </kw>
+<for flavor="IN">
+<var>${buyButton}</var>
+<value>@{buyButtons}</value>
+<iter>
+<var name="${buyButton}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="8648464b-2517-4503-aefd-917c2e236523")&gt;</var>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>xpath=//button[@aria-label='Close']</arg>
+<arg>xpath=//button[@data-lb-action='buy']/span</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230226 21:58:09.927" endtime="20230226 21:58:10.749"/>
+<status status="PASS" starttime="20230309 19:24:21.438" endtime="20230309 19:24:21.648"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath=//button[@aria-label='Close']</arg>
+<arg>${buyBUtton}</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230226 21:58:10.760" level="INFO">Clicking element 'xpath=//button[@aria-label='Close']'.</msg>
-<status status="PASS" starttime="20230226 21:58:10.759" endtime="20230226 21:58:11.076"/>
+<msg timestamp="20230309 19:24:21.650" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="8648464b-2517-4503-aefd-917c2e236523")&gt;'.</msg>
+<status status="PASS" starttime="20230309 19:24:21.649" endtime="20230309 19:24:22.077"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230309 19:24:24.080" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230309 19:24:22.078" endtime="20230309 19:24:24.083"/>
 </kw>
 <kw name="Get Element Count" library="SeleniumLibrary">
 <var>${discountPopUp}</var>
 <arg>xpath=//div[@class='boxed-content']</arg>
 <doc>Returns the number of elements matching ``locator``.</doc>
-<msg timestamp="20230226 21:58:11.192" level="INFO">${discountPopUp} = 0</msg>
-<status status="PASS" starttime="20230226 21:58:11.078" endtime="20230226 21:58:11.193"/>
+<msg timestamp="20230309 19:24:24.284" level="INFO">${discountPopUp} = 1</msg>
+<status status="PASS" starttime="20230309 19:24:24.084" endtime="20230309 19:24:24.284"/>
 </kw>
 <if>
 <branch type="IF" condition="($discountPopUp == 1)">
 <kw name="Click Element" library="SeleniumLibrary">
 <arg>xpath=//span[@class='close-cross']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<status status="NOT RUN" starttime="20230226 21:58:11.210" endtime="20230226 21:58:11.212"/>
+<msg timestamp="20230309 19:24:24.286" level="INFO">Clicking element 'xpath=//span[@class='close-cross']'.</msg>
+<status status="PASS" starttime="20230309 19:24:24.286" endtime="20230309 19:24:24.973"/>
 </kw>
-<status status="NOT RUN" starttime="20230226 21:58:11.209" endtime="20230226 21:58:11.213"/>
+<status status="PASS" starttime="20230309 19:24:24.285" endtime="20230309 19:24:24.974"/>
 </branch>
-<status status="PASS" starttime="20230226 21:58:11.194" endtime="20230226 21:58:11.217"/>
+<status status="PASS" starttime="20230309 19:24:24.285" endtime="20230309 19:24:24.974"/>
 </if>
 <kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
-<arg>xpath=//img[@class='svg-cart-full']</arg>
+<arg>xpath=//button[@aria-label='Close']</arg>
 <doc>Waits until the element ``locator`` is visible.</doc>
-<status status="PASS" starttime="20230226 21:58:11.222" endtime="20230226 21:58:11.362"/>
+<status status="PASS" starttime="20230309 19:24:24.975" endtime="20230309 19:24:25.202"/>
 </kw>
 <kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath=//img[@class='svg-cart-full']</arg>
+<arg>xpath=//button[@aria-label='Close']</arg>
 <doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230226 21:58:11.368" level="INFO">Clicking element 'xpath=//img[@class='svg-cart-full']'.</msg>
-<status status="PASS" starttime="20230226 21:58:11.363" endtime="20230226 21:58:12.674"/>
+<msg timestamp="20230309 19:24:25.203" level="INFO">Clicking element 'xpath=//button[@aria-label='Close']'.</msg>
+<status status="PASS" starttime="20230309 19:24:25.203" endtime="20230309 19:24:25.498"/>
 </kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath=//img[contains(@src,'remove')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230226 21:58:12.676" level="INFO">Clicking element 'xpath=//img[contains(@src,'remove')]'.</msg>
-<status status="PASS" starttime="20230226 21:58:12.675" endtime="20230226 21:58:12.898"/>
-</kw>
-<kw name="Click Element" library="SeleniumLibrary">
-<arg>xpath=//a[contains(@class,'continue')]</arg>
-<doc>Click the element identified by ``locator``.</doc>
-<msg timestamp="20230226 21:58:12.918" level="INFO">Clicking element 'xpath=//a[contains(@class,'continue')]'.</msg>
-<status status="PASS" starttime="20230226 21:58:12.917" endtime="20230226 21:58:14.064"/>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class='badge pcs-total']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230309 19:24:25.499" endtime="20230309 19:24:25.790"/>
 </kw>
 <kw name="Get Text" library="SeleniumLibrary">
-<var>${actualTxt}</var>
-<arg>xpath=//div[@class='modal-body']</arg>
+<var>${iteminBasket}</var>
+<arg>xpath=//span[@class='badge pcs-total']</arg>
 <doc>Returns the text value of the element identified by ``locator``.</doc>
-<msg timestamp="20230226 21:58:14.239" level="INFO">${actualTxt} = Neplatná hodnota položky v košíku, košík byl vymazán</msg>
-<status status="PASS" starttime="20230226 21:58:14.080" endtime="20230226 21:58:14.240"/>
+<msg timestamp="20230309 19:24:26.159" level="INFO">${iteminBasket} = 1</msg>
+<status status="PASS" starttime="20230309 19:24:25.792" endtime="20230309 19:24:26.159"/>
 </kw>
+<if>
+<branch type="IF" condition="$iteminBasket == '3'">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:26.160" endtime="20230309 19:24:26.160"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:26.159" endtime="20230309 19:24:26.160"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:26.159" endtime="20230309 19:24:26.160"/>
+</if>
+<status status="PASS" starttime="20230309 19:24:21.437" endtime="20230309 19:24:26.160"/>
+</iter>
+<iter>
+<var name="${buyButton}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="344247c5-9ca7-4e3d-b80a-be2ec1f68ee9")&gt;</var>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//button[@data-lb-action='buy']/span</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230309 19:24:26.161" endtime="20230309 19:24:26.261"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${buyBUtton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:26.267" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="344247c5-9ca7-4e3d-b80a-be2ec1f68ee9")&gt;'.</msg>
+<status status="PASS" starttime="20230309 19:24:26.261" endtime="20230309 19:24:26.525"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230309 19:24:28.528" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230309 19:24:26.526" endtime="20230309 19:24:28.528"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${discountPopUp}</var>
+<arg>xpath=//div[@class='boxed-content']</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230309 19:24:28.607" level="INFO">${discountPopUp} = 1</msg>
+<status status="PASS" starttime="20230309 19:24:28.529" endtime="20230309 19:24:28.609"/>
+</kw>
+<if>
+<branch type="IF" condition="($discountPopUp == 1)">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//span[@class='close-cross']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:28.611" level="INFO">Clicking element 'xpath=//span[@class='close-cross']'.</msg>
+<status status="PASS" starttime="20230309 19:24:28.611" endtime="20230309 19:24:28.933"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:28.610" endtime="20230309 19:24:28.933"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:28.610" endtime="20230309 19:24:28.934"/>
+</if>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//button[@aria-label='Close']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230309 19:24:28.934" endtime="20230309 19:24:29.100"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[@aria-label='Close']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:29.102" level="INFO">Clicking element 'xpath=//button[@aria-label='Close']'.</msg>
+<status status="PASS" starttime="20230309 19:24:29.101" endtime="20230309 19:24:29.448"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class='badge pcs-total']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230309 19:24:29.451" endtime="20230309 19:24:29.621"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${iteminBasket}</var>
+<arg>xpath=//span[@class='badge pcs-total']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:29.741" level="INFO">${iteminBasket} = 2</msg>
+<status status="PASS" starttime="20230309 19:24:29.622" endtime="20230309 19:24:29.741"/>
+</kw>
+<if>
+<branch type="IF" condition="$iteminBasket == '3'">
+<break>
+<status status="NOT RUN" starttime="20230309 19:24:29.742" endtime="20230309 19:24:29.743"/>
+</break>
+<status status="NOT RUN" starttime="20230309 19:24:29.742" endtime="20230309 19:24:29.743"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:29.742" endtime="20230309 19:24:29.743"/>
+</if>
+<status status="PASS" starttime="20230309 19:24:26.161" endtime="20230309 19:24:29.744"/>
+</iter>
+<iter>
+<var name="${buyButton}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="78c9da50-d101-4fa3-b8e9-caab4279b70e")&gt;</var>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//button[@data-lb-action='buy']/span</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230309 19:24:29.745" endtime="20230309 19:24:29.863"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>${buyBUtton}</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:29.864" level="INFO">Clicking element '&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="78c9da50-d101-4fa3-b8e9-caab4279b70e")&gt;'.</msg>
+<status status="PASS" starttime="20230309 19:24:29.864" endtime="20230309 19:24:30.088"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230309 19:24:32.090" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230309 19:24:30.089" endtime="20230309 19:24:32.093"/>
+</kw>
+<kw name="Get Element Count" library="SeleniumLibrary">
+<var>${discountPopUp}</var>
+<arg>xpath=//div[@class='boxed-content']</arg>
+<doc>Returns the number of elements matching ``locator``.</doc>
+<msg timestamp="20230309 19:24:32.161" level="INFO">${discountPopUp} = 0</msg>
+<status status="PASS" starttime="20230309 19:24:32.094" endtime="20230309 19:24:32.164"/>
+</kw>
+<if>
+<branch type="IF" condition="($discountPopUp == 1)">
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//span[@class='close-cross']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<status status="NOT RUN" starttime="20230309 19:24:32.170" endtime="20230309 19:24:32.170"/>
+</kw>
+<status status="NOT RUN" starttime="20230309 19:24:32.167" endtime="20230309 19:24:32.170"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:32.167" endtime="20230309 19:24:32.171"/>
+</if>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//button[@aria-label='Close']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230309 19:24:32.171" endtime="20230309 19:24:32.393"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//button[@aria-label='Close']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:32.394" level="INFO">Clicking element 'xpath=//button[@aria-label='Close']'.</msg>
+<status status="PASS" starttime="20230309 19:24:32.394" endtime="20230309 19:24:32.671"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//span[@class='badge pcs-total']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230309 19:24:32.672" endtime="20230309 19:24:32.816"/>
+</kw>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${iteminBasket}</var>
+<arg>xpath=//span[@class='badge pcs-total']</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:32.944" level="INFO">${iteminBasket} = 3</msg>
+<status status="PASS" starttime="20230309 19:24:32.821" endtime="20230309 19:24:32.944"/>
+</kw>
+<if>
+<branch type="IF" condition="$iteminBasket == '3'">
+<break>
+<status status="PASS" starttime="20230309 19:24:32.945" endtime="20230309 19:24:32.945"/>
+</break>
+<status status="PASS" starttime="20230309 19:24:32.944" endtime="20230309 19:24:32.945"/>
+</branch>
+<status status="PASS" starttime="20230309 19:24:32.944" endtime="20230309 19:24:32.945"/>
+</if>
+<status status="PASS" starttime="20230309 19:24:29.744" endtime="20230309 19:24:32.945"/>
+</iter>
+<status status="PASS" starttime="20230309 19:24:21.437" endtime="20230309 19:24:32.946"/>
+</for>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//img[@class='svg-cart-full']/../span</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230309 19:24:32.948" endtime="20230309 19:24:33.113"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//img[@class='svg-cart-full']/../span</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:33.115" level="INFO">Clicking element 'xpath=//img[@class='svg-cart-full']/../span'.</msg>
+<status status="PASS" starttime="20230309 19:24:33.114" endtime="20230309 19:24:35.069"/>
+</kw>
+<kw name="Get WebElements" library="SeleniumLibrary">
+<var>${basketElements}</var>
+<arg>xpath=//h2[@class='overflow-ellipsis']</arg>
+<doc>Returns a list of WebElement objects matching the ``locator``.</doc>
+<msg timestamp="20230309 19:24:35.151" level="INFO">${basketElements} = [&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="a71cfd68-7641-483e-8aa6-c61e959330d5")&gt;, &lt;selenium.webdriver.remote.webelement.WebElement (sessi...</msg>
+<status status="PASS" starttime="20230309 19:24:35.075" endtime="20230309 19:24:35.151"/>
+</kw>
+<for flavor="IN">
+<var>${basketElement}</var>
+<value>@{basketElements}</value>
+<iter>
+<var name="${basketElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="a71cfd68-7641-483e-8aa6-c61e959330d5")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${basketItemText}</var>
+<arg>${basketElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:35.185" level="INFO">${basketItemText} = Apple MacBook Pro CTO 16" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Space Grey SK (APPMBPCTO662)</msg>
+<status status="PASS" starttime="20230309 19:24:35.158" endtime="20230309 19:24:35.185"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemBasketList}</arg>
+<arg>${basketItemText}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:35.185" endtime="20230309 19:24:35.186"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:35.156" endtime="20230309 19:24:35.186"/>
+</iter>
+<iter>
+<var name="${basketElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="dfe8edf3-d3f9-48dc-afb8-082acfe9c697")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${basketItemText}</var>
+<arg>${basketElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:35.214" level="INFO">${basketItemText} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Space Grey SK (APPMBPCTO598)</msg>
+<status status="PASS" starttime="20230309 19:24:35.188" endtime="20230309 19:24:35.214"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemBasketList}</arg>
+<arg>${basketItemText}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:35.214" endtime="20230309 19:24:35.215"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:35.188" endtime="20230309 19:24:35.215"/>
+</iter>
+<iter>
+<var name="${basketElement}">&lt;selenium.webdriver.remote.webelement.WebElement (session="b056bf7f7ff38a74c2ad4c4550575b19", element="a6bc27b3-6b14-45bd-8953-cbca4e43cd8c")&gt;</var>
+<kw name="Get Text" library="SeleniumLibrary">
+<var>${basketItemText}</var>
+<arg>${basketElement}</arg>
+<doc>Returns the text value of the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:35.241" level="INFO">${basketItemText} = Apple MacBook Pro CTO 14" M2 Max 12-CPU 38-GPU, 96GB, 8TB - Silver SK (APPMBPCTO746)</msg>
+<status status="PASS" starttime="20230309 19:24:35.215" endtime="20230309 19:24:35.241"/>
+</kw>
+<kw name="Append To List" library="Collections">
+<arg>${itemBasketList}</arg>
+<arg>${basketItemText}</arg>
+<doc>Adds ``values`` to the end of ``list``.</doc>
+<status status="PASS" starttime="20230309 19:24:35.241" endtime="20230309 19:24:35.242"/>
+</kw>
+<status status="PASS" starttime="20230309 19:24:35.215" endtime="20230309 19:24:35.242"/>
+</iter>
+<status status="PASS" starttime="20230309 19:24:35.152" endtime="20230309 19:24:35.242"/>
+</for>
 <kw name="Should Be Equal" library="BuiltIn">
-<arg>${actualTxt}</arg>
-<arg>${expectedTxt}</arg>
+<arg>${itemNameList2}</arg>
+<arg>${itemBasketList}</arg>
 <doc>Fails if the given objects are unequal.</doc>
-<status status="PASS" starttime="20230226 21:58:14.241" endtime="20230226 21:58:14.242"/>
+<status status="PASS" starttime="20230309 19:24:35.244" endtime="20230309 19:24:35.246"/>
+</kw>
+<kw name="Wait Until Element Is Visible" library="SeleniumLibrary">
+<arg>xpath=//a[@rel='nofollow']</arg>
+<doc>Waits until the element ``locator`` is visible.</doc>
+<status status="PASS" starttime="20230309 19:24:35.247" endtime="20230309 19:24:35.282"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${totalPrice}</var>
+<arg>xpath=//div[@class='basket-total-price']</arg>
+<arg>data-basket-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:35.317" level="INFO">${totalPrice} = 22357</msg>
+<status status="PASS" starttime="20230309 19:24:35.283" endtime="20230309 19:24:35.317"/>
+</kw>
+<kw name="Click Element" library="SeleniumLibrary">
+<arg>xpath=//a[@rel='nofollow']</arg>
+<doc>Click the element identified by ``locator``.</doc>
+<msg timestamp="20230309 19:24:35.317" level="INFO">Clicking element 'xpath=//a[@rel='nofollow']'.</msg>
+<status status="PASS" starttime="20230309 19:24:35.317" endtime="20230309 19:24:35.412"/>
+</kw>
+<kw name="Sleep" library="BuiltIn">
+<arg>2s</arg>
+<doc>Pauses the test executed for the given time.</doc>
+<msg timestamp="20230309 19:24:37.414" level="INFO">Slept 2 seconds</msg>
+<status status="PASS" starttime="20230309 19:24:35.413" endtime="20230309 19:24:37.415"/>
+</kw>
+<kw name="Get Element Attribute" library="SeleniumLibrary">
+<var>${totalPriceRemove}</var>
+<arg>xpath=//div[@class='basket-total-price']</arg>
+<arg>data-basket-price</arg>
+<doc>Returns the value of ``attribute`` from the element ``locator``.</doc>
+<msg timestamp="20230309 19:24:37.475" level="INFO">${totalPriceRemove} = 14758</msg>
+<status status="PASS" starttime="20230309 19:24:37.417" endtime="20230309 19:24:37.476"/>
+</kw>
+<kw name="Should Not Be Equal" library="BuiltIn">
+<arg>${totalPrice}</arg>
+<arg>${totalPriceRemove}</arg>
+<doc>Fails if the given objects are equal.</doc>
+<status status="PASS" starttime="20230309 19:24:37.477" endtime="20230309 19:24:37.479"/>
+</kw>
+<kw name="Page Should Contain Element" library="SeleniumLibrary">
+<arg>//div[@class='basket-product-wrap']</arg>
+<arg>limit=2</arg>
+<doc>Verifies that element ``locator`` is found on the current page.</doc>
+<msg timestamp="20230309 19:24:37.502" level="INFO">Current page contains 2 element(s).</msg>
+<status status="PASS" starttime="20230309 19:24:37.480" endtime="20230309 19:24:37.502"/>
 </kw>
 <kw name="Close Browser" library="SeleniumLibrary">
 <doc>Closes the current browser.</doc>
-<status status="PASS" starttime="20230226 21:58:14.244" endtime="20230226 21:58:17.055"/>
+<status status="PASS" starttime="20230309 19:24:37.502" endtime="20230309 19:24:40.243"/>
 </kw>
-<status status="PASS" starttime="20230226 21:57:58.380" endtime="20230226 21:58:17.058"/>
+<status status="PASS" starttime="20230309 19:24:01.996" endtime="20230309 19:24:40.247"/>
 </test>
-<doc>Empty Basket</doc>
-<status status="PASS" starttime="20230226 21:57:57.875" endtime="20230226 21:58:17.065"/>
+<doc>Expensive items in basket.</doc>
+<status status="PASS" starttime="20230309 19:24:01.574" endtime="20230309 19:24:40.255"/>
 </suite>
 <statistics>
 <total>
@@ -123,7 +2015,7 @@
 <tag>
 </tag>
 <suite>
-<stat pass="1" fail="0" skip="0" id="s1" name="Test3">Test3</stat>
+<stat pass="1" fail="0" skip="0" id="s1" name="Test1">Test1</stat>
 </suite>
 </statistics>
 <errors>

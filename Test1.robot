@@ -9,7 +9,7 @@ ${URL}        https://www.datart.sk/
 ${BROWSER}    Chrome
 @{priceList}
 @{itemNameList}
-@{itemNameList3}
+@{itemNameList2}
 @{itemBasketList}
 
 *** Keywords ***
@@ -44,6 +44,7 @@ Get Expensive Items
            Log To Console    ${ListItem1}' and '${ListItem2}
        END  
     
+    #Create list of names of 3 most expensive items 
     ${itemElements}=    Get WebElements    xpath=//h3[@class='item-title']/a[contains(@data-lb-name,'Notebook')]
         FOR    ${itemElement}    IN    @{itemElements}
             ${itemName}=    Get Text    ${itemElement}
@@ -51,8 +52,9 @@ Get Expensive Items
             Append To List    ${itemNameList}    ${itemNameRepl}
         END
        
-        ${itemNameList3}    Get Slice From List    ${itemNameList}    0    3
-                         
+        ${itemNameList2}    Get Slice From List    ${itemNameList}    0    3
+    
+    #Add 3 most expensive items to basket                      
     ${buyButtons}=    Get WebElements    xpath=//button[@data-lb-action='buy']/span
     FOR    ${buyButton}    IN    @{buyButtons}
         Wait Until Element Is Visible    xpath=//button[@data-lb-action='buy']/span
@@ -75,6 +77,7 @@ Get Expensive Items
     Wait Until Element Is Visible    xpath=//img[@class='svg-cart-full']/../span
     Click Element    xpath=//img[@class='svg-cart-full']/../span
     
+    #Create list of names of 3 items in basket
     ${basketElements}=    Get WebElements    xpath=//h2[@class='overflow-ellipsis']
     FOR    ${basketElement}    IN    @{basketElements}
            ${basketItemText}=    Get Text    ${basketElement}
@@ -82,7 +85,7 @@ Get Expensive Items
     END
 
     #Item name in basket control
-    Should Be Equal    ${itemNameList3}    ${itemBasketList}
+    Should Be Equal    ${itemNameList2}    ${itemBasketList}
 
     #remove item from basket
     Wait Until Element Is Visible    xpath=//a[@rel='nofollow']
