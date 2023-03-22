@@ -1,24 +1,27 @@
 *** Settings ***
-Documentation    Expensive items in basket.
-Library          SeleniumLibrary    
-Library    String
-Library    Collections
+Documentation    
+Resource    resources.robot
+Library     SeleniumLibrary    
+Library     String
+Library     Collections
+
+Test Setup    Open browser maximize accept cookies
+Test Teardown    Close Browser
 
 *** Variables ***
-${URL}        https://www.datart.sk/
-${BROWSER}    Chrome
 @{priceList}
 @{itemNameList}
 @{itemNameList2}
 @{itemBasketList}
+${searchText}    samsung
+${expectedTxt}    Neplatná hodnota položky v košíku, košík byl vymazán
 
 *** Keywords ***
 
 *** Test Cases ***
+
 Get Expensive Items
-    Open Browser                ${URL}    ${BROWSER}    options=add_experimental_option("detach", True)
-    Maximize Browser Window
-    Click Element               xpath=//div[contains(@class,'box')]//button[contains(text(),'Súhlasím a pokračovať')]
+    [Tags]    test1    work-in-progress     
     Click Element               xpath=//h2[contains(@class, 'footer')]/..//a[contains(@href, 'pc-notebooky')]
     Click Element               xpath=//span[contains(text(),'Macbooky')]
     Click Element               xpath=//a[@data-lb-name='Najdrahší']
@@ -97,5 +100,66 @@ Get Expensive Items
     ${totalPriceRemove}=    Get Element Attribute    xpath=//div[@class='basket-total-price']    data-basket-price
 
     Should Not Be Equal    ${totalPrice}    ${totalPriceRemove}
-    Page Should Contain Element    //div[@class='basket-product-wrap']    limit=2  
-    Close Browser
+    Page Should Contain Element    //div[@class='basket-product-wrap']    limit=2
+
+Search
+    [Tags]    test2
+    #Conver String to Upper Case
+    ${searchTextTit}=    Convert To Title Case    ${searchText}
+    ${searchTextUpp}=    Convert To Upper Case    ${searchText}   
+   
+    #Search for variable searchText
+    Input Text    xpath=//input[@type='search']    ${searchText}
+    Click Element    xpath=//button[@type='submit']/span
+
+    #verify actual and expected text
+    Element Should Contain    xpath=//h1/span    ${searchText}
+
+    #loop for verifying that item name contains searchText
+    ${lastPageNumber}=    Get Text    xpath=(//li[@class='page-item']/a[@class='page-link '])[last()]
+    ${lastPageNumber-1}=    Evaluate    ${lastPageNumber}-1
+    FOR    ${counter}    IN RANGE    0    ${lastPageNumber}    1
+        IF    $counter == ${lastPageNumber-1}    BREAK
+        ${items}=    Get Webelements    xpath=//h3[@class='item-title']/a
+        FOR    ${item}    IN    @{items}
+            ${elementTxt}=    Get Text    ${item}
+            Log To Console    ${elementTxt}
+            Element Should Contain    ${item}    ${searchText}    Neobsahuje:${searchText}    ignore_case: bool = True                    
+        END  
+        ${discountPopUp}=  Get Element Count    xpath=//div[contains(@class,'exponea-colose-link')]
+        IF    ($discountPopUp == 1)
+        Wait Until Page Contains Element    xpath=//div[contains(@class,'exponea-colose-link')]
+        Click Element    xpath=//div[contains(@class,'exponea-colose-link')]
+        Wait Until Page Contains Element    xpath=//button[@class ='exponea-button-close']
+        Click Element    xpath=//button[@class ='exponea-button-close']
+        END
+        Click Element    xpath=//a[@class='page-link next-page ']
+        Log To Console    ${counter}
+    END
+
+Empty Basket
+    [Tags]    test3
+    Click Element               xpath=//h2[contains(@class, 'footer')]/..//a[contains(@href, 'pc-notebooky')]
+    Click Element               xpath=//span[contains(text(),'Macbooky')]
+    Wait Until Element Is Visible    xpath=//button[@data-lb-action='buy']/span
+    #add item to basket
+    Click Element    xpath=//button[@data-lb-action='buy']/span
+    #close popup
+    Wait Until Element Is Visible    xpath=//button[@aria-label='Close']
+    Click Element    xpath=//button[@aria-label='Close']
+    
+    ${discountPopUp}=  Get Element Count    xpath=//div[@class='boxed-content']
+        IF    ($discountPopUp == 1)
+        Click Element    xpath=//span[@class='close-cross']
+        END
+
+    #navigate to basket 
+    Wait Until Element Is Visible    xpath=//img[@class='svg-cart-full']
+    Click Element    xpath=//img[@class='svg-cart-full']
+    #remove item from basket
+    Click Element    xpath=//img[contains(@src,'remove')]
+    #click on continue button
+    Click Element    xpath=//a[contains(@class,'continue')]
+    #verify if basket is empty
+    ${actualTxt}=    Get Text    xpath=//div[@class='modal-body']
+    Should Be Equal    ${actualTxt}    ${expectedTxt}
