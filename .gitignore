@@ -1,5 +1,5 @@
-### gitignore
-
-*.png
-*.html
-*.xml
+.png
+.html
+.xml
+TomasReview.robot
+res.robot
